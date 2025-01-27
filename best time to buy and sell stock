@@ -1,0 +1,19 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int currentmin=prices[0];
+        int ans=0;
+        int n=prices.length;
+        for(int i=1;i<n;i++)
+        {
+                int profit=prices[i]-currentmin;
+                if(profit>ans)
+                {
+                    ans=profit;
+                }
+                currentmin=Math.min(prices[i],currentmin);
+            }
+        
+        return ans;
+    }
+        
+    }
