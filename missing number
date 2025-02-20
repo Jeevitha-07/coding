@@ -1,0 +1,15 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        int miss=0,sum=0,sum1=0,n=nums.length;
+        sum=n*(n+1)/2;
+        for(int i=0;i<nums.length;i++)
+        {
+            sum1+=nums[i];
+        }
+
+        miss=sum-sum1;
+        return miss;
+        
+        
+    }
+}
