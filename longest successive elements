@@ -1,0 +1,43 @@
+public class Solution {
+    public static int longestSuccessiveElements(int []a) {
+        int len = 1;
+        int firstlen = 0;//initialize variables
+                for (int i = 0; i < a.length; i++) {
+
+            // Inner nested loop pointing 1 index ahead
+            for (int j = i + 1; j < a.length; j++) {
+
+                // Checking elements
+                int temp = 0;
+                if (a[j] < a[i]) {
+
+                    // Swapping
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+                }
+
+        for(int i = 1; i < a.length; i++)
+        {
+            if(a[i] - a[i-1] == 1)//check difference =1 if so then increment len
+            {
+                len++;
+
+            }
+            else if(a[i] - a[i-1] != 1) //if length is other then one, reassign it
+            {
+             if(a[i] - a[i-1] != 0)
+             {
+                len = 1;
+             }
+            }
+            if(len > firstlen)
+            {
+                firstlen = len; // assign the max length
+            }
+        }
+        return firstlen;
+    }
+}
