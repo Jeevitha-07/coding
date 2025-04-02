@@ -1,0 +1,44 @@
+//print the string with odd length and if two strings are of same length then print the first string with odd length or if all the string is of evev length then print better luck next time
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int no_of_string;
+        String newString = null;
+        System.out.println("enter no of string");
+        no_of_string = in.nextInt();
+        in.nextLine();
+        int max = 0;
+        String[] string = new String[no_of_string];
+        for (int i = 0; i < no_of_string; i++)
+        {
+            string[i] = in.nextLine();
+        }
+        for (int i = 0; i < no_of_string; i++)
+        {
+            if (string[i].length() % 2 != 0)
+            {
+                if (string[i].length() > max)
+                {
+                    max = string[i].length();
+                    newString = string[i];
+                }
+            }
+
+
+        }
+            if (newString != null) {
+                System.out.println(newString);
+            }
+            else {
+                System.out.println("Better luck next time");
+            }
+
+
+        }
+    }
+
+
+
+
