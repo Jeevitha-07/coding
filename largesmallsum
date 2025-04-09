@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter no of elements:");
+        int n = in.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter elements:");
+        for(int i =0; i < n; i++)
+        {
+            arr[i] = in.nextInt();
+        }
+        int large = arr[0];
+        int seclar = Integer.MIN_VALUE;
+        int small = arr[1];
+        int secsmall = Integer.MAX_VALUE;
+        if(arr.length == 0 || arr.length <=3)
+        {
+            System.out.println(0);
+        }
+        else {
+            for (int i = 0; i < arr.length; i += 2) {
+                if (arr[i] > large) {
+                    seclar = large;
+                    large = arr[i];
+                }
+                if (arr[i] != large && arr[i] > seclar) {
+                    seclar = arr[i];
+                }
+            }
+            for (int i = 1; i < arr.length; i += 2) {
+                if (arr[i] < small) {
+                    secsmall = small;
+                    small = arr[i];
+                } else if (arr[i] != small && arr[i] < secsmall) {
+                    secsmall = arr[i];
+                }
+            }
+            System.out.println(seclar + secsmall);
+        }
+    }
+}
